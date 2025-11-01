@@ -1118,10 +1118,29 @@ body {
 }
 
 /* Main Content - Now takes up full remaining width */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
 .main-content {
-  overflow-y: auto;
-  max-height: calc(100vh - 40px);
-  padding-right: var(--space-8);
+    flex: 1;
+    overflow-y: auto;
+    min-height: 100vh;
+    padding: 32px;
+    margin-left: 250px;
+    width: calc(100% - 250px);
 }
 
 .main-content::-webkit-scrollbar {
@@ -1140,13 +1159,22 @@ body {
 
 /* Page Content */
 .page-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-24);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
 .page-content.hidden {
-  display: none !important;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
 .page-header h1 {
@@ -1558,6 +1586,7 @@ textarea.form-control {
 
 /* Utility Classes */
 .hidden {
+    display: none !important;
   display: none !important;
 }
 

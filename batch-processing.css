@@ -1,0 +1,87 @@
+/* Batch Processing Styles */
+.batch-progress {
+    margin-top: var(--space-20);
+    text-align: center;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-12);
+    overflow: hidden;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    background: var(--color-teal-500);
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+}
+
+.batch-summary {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: var(--space-20);
+    min-width: 300px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+}
+
+.summary-header i {
+    color: var(--color-teal-500);
+    font-size: 24px;
+}
+
+.summary-header h4 {
+    margin: 0;
+    color: var(--color-white);
+}
+
+.summary-content {
+    margin-bottom: var(--space-16);
+}
+
+.summary-content p {
+    margin: 0 0 var(--space-8);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.summary-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary-content li {
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--space-4) 0;
+}
+
+.close-summary {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
+    padding: var(--space-8);
+    min-width: unset;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

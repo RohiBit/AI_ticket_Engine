@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Knowledge Engine</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="priority-styles.css">
+    <link rel="stylesheet" href="visualizations.css">
+    <link rel="stylesheet" href="batch-processing.css">
+    <link rel="stylesheet" href="upload-help.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -37,30 +41,10 @@
                     <i class="fas fa-ticket-alt"></i>
                     <span>Tickets</span>
                 </div>
-                <div class="nav-item" data-page="analytics">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Analytics</span>
-                </div>
-                <div class="nav-item" data-page="knowledge">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Knowledge Graph</span>
-                </div>
             </nav>
-
-            <div class="sidebar-footer">
-                <div class="user-info glass-card">
-                    <div class="avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="user-details">
-                        <span class="username">AI Assistant</span>
-                        <span class="status">Online</span>
-                    </div>
-                </div>
-            </div>
         </aside>
 
-        <!-- Main Content Area - Now Full Width -->
+        <!-- Main Content Area -->
         <main class="main-content">
             <!-- Dashboard Page -->
             <div class="page-content" id="dashboard-page">
@@ -72,13 +56,20 @@
                 <div class="dashboard-grid">
                     <div class="glass-card stats-card">
                         <h3>Overview Statistics</h3>
-                        <div class="stats-empty">
-                            <i class="fas fa-chart-bar"></i>
-                            <p>No data available yet</p>
-                            <span>Add tickets to see statistics</span>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <i class="fas fa-ticket-alt"></i>
+                                <h4>Total Tickets</h4>
+                                <p>0</p>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Processed</h4>
+                                <p>0</p>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="glass-card activity-card">
                         <h3>Recent Activity</h3>
                         <div class="activity-empty">
@@ -95,92 +86,53 @@
                                 <i class="fas fa-plus"></i>
                                 New Ticket
                             </button>
-                            <button class="btn btn--secondary" data-action="view-analytics">
-                                <i class="fas fa-chart-line"></i>
-                                View Analytics
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card status-card">
-                        <h3>System Status</h3>
-                        <div class="status-indicators">
-                            <div class="status-item">
-                                <div class="status-dot online"></div>
-                                <span>AI Engine</span>
-                                <span class="status-label">Online</span>
-                            </div>
-                            <div class="status-item">
-                                <div class="status-dot online"></div>
-                                <span>Database</span>
-                                <span class="status-label">Connected</span>
-                            </div>
-                            <div class="status-item">
-                                <div class="status-dot online"></div>
-                                <span>Analytics</span>
-                                <span class="status-label">Ready</span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Tickets Page -->
             <div class="page-content hidden" id="tickets-page">
                 <div class="page-header">
                     <h1>Tickets</h1>
-                    <p>Manage and submit support tickets</p>
+                    <p>Submit and manage your tickets</p>
                 </div>
-                
-                <div class="tickets-tabs">
-                    <button class="tab-btn active" data-tab="add-ticket">Add Ticket</button>
-                    <button class="tab-btn" data-tab="ticket-list">Ticket List</button>
-                </div>
-                
-                <!-- Add Ticket Tab -->
-                <div class="tab-content" id="add-ticket-tab">
-                    <div class="glass-card ticket-form-card">
-                        <div class="input-toggle">
+
+                <!-- Add New Ticket Section -->
+                <div class="glass-card add-ticket-section">
+                    <div class="ticket-form">
+                        <!-- Input Type Toggle -->
+                        <div class="input-type-toggle">
                             <button class="toggle-btn active" data-input="type">
                                 <i class="fas fa-keyboard"></i>
-                                Type Ticket
+                                Type
                             </button>
                             <button class="toggle-btn" data-input="upload">
                                 <i class="fas fa-file-upload"></i>
-                                Upload File
+                                Upload
                             </button>
                         </div>
-                        
-                        <!-- Type Input -->
-                        <div class="input-section" id="type-input">
-                            <div class="form-group">
-                                <label class="form-label">Describe your issue:</label>
-                                <textarea id="ticketTextarea" class="form-control" rows="8" placeholder="Describe your issue in detail..."></textarea>
-                                <div class="input-footer">
-                                    <span class="char-count">
-                                        <span id="charCount">0</span> characters
-                                    </span>
-                                </div>
+
+                        <!-- Type Input Section -->
+                        <div class="input-section" id="typeSection">
+                            <textarea id="ticketTextarea" class="form-control" 
+                                placeholder="Enter your ticket description here..."></textarea>
+                            <div class="char-counter">
+                                <span id="charCount">0</span> / 1000 characters
                             </div>
                         </div>
-                        
-                        <!-- File Upload -->
-                        <div class="input-section hidden" id="upload-input">
-                            <div class="form-group">
-                                <label class="form-label">Upload ticket file (.txt):</label>
-                                <div class="file-upload-area" id="fileUploadArea">
-                                    <div class="upload-content">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                        <p>Drag and drop your .txt file here</p>
-                                        <span>or</span>
-                                        <button type="button" class="btn btn--outline" id="browseBtn">Browse Files</button>
-                                        <input type="file" id="fileInput" accept=".txt" hidden>
-                                    </div>
-                                    <div class="file-info hidden" id="fileInfo"></div>
-                                </div>
+
+                        <!-- Upload Input Section -->
+                        <div class="input-section hidden" id="uploadSection">
+                            <div class="upload-area" id="fileUploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop your file here or</p>
+                                <button class="btn btn--secondary" id="browseBtn">Browse Files</button>
+                                <input type="file" id="fileInput" hidden>
                             </div>
+                            <div class="file-info hidden" id="fileInfo"></div>
                         </div>
-                        
+
                         <div class="form-actions">
                             <button class="btn btn--primary" id="submitTicket">
                                 <i class="fas fa-paper-plane"></i>
@@ -190,110 +142,25 @@
                     </div>
                 </div>
                 
-                <!-- Ticket List Tab -->
-                <div class="tab-content hidden" id="ticket-list-tab">
-                    <div class="glass-card tickets-list-card">
-                        <div class="list-header">
-                            <h3>Your Tickets</h3>
-                            <div class="list-controls">
-                                <input type="text" class="form-control search-input" placeholder="Search tickets...">
-                                <select class="form-control">
-                                    <option>All Statuses</option>
-                                    <option>Open</option>
-                                    <option>Closed</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="tickets-empty">
-                            <i class="fas fa-ticket-alt"></i>
-                            <h4>No tickets have been submitted yet</h4>
-                            <p>Submit your first ticket to get started</p>
+                <!-- Ticket List Section -->
+                <div class="glass-card tickets-list-card">
+                    <div class="list-header">
+                        <h3>Your Tickets</h3>
+                        <div class="list-controls">
+                            <input type="text" class="form-control search-input" placeholder="Search tickets...">
+                            <select class="form-control">
+                                <option>All Statuses</option>
+                                <option>Open</option>
+                                <option>Closed</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Analytics Page -->
-            <div class="page-content hidden" id="analytics-page">
-                <div class="page-header">
-                    <h1>Analytics</h1>
-                    <p>Analyze your support data</p>
-                </div>
-                
-                <div class="analytics-grid">
-                    <div class="glass-card metrics-card">
-                        <h3>Key Metrics</h3>
-                        <div class="metrics-empty">
-                            <i class="fas fa-chart-pie"></i>
-                            <p>No data to display</p>
-                            <span>Add tickets to see analytics data</span>
-                        </div>
+                    <div class="tickets-empty">
+                        <i class="fas fa-ticket-alt"></i>
+                        <h4>No tickets have been submitted yet</h4>
+                        <p>Submit your first ticket to get started</p>
                     </div>
-                    
-                    <div class="glass-card chart-card">
-                        <h3>Ticket Trends</h3>
-                        <div class="chart-empty">
-                            <i class="fas fa-chart-line"></i>
-                            <p>Chart will appear here</p>
-                            <span>When you have ticket data</span>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card categories-card">
-                        <h3>Category Breakdown</h3>
-                        <div class="categories-empty">
-                            <i class="fas fa-tags"></i>
-                            <p>No categories yet</p>
-                            <span>Categories based on ticket content</span>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card performance-card">
-                        <h3>Performance Metrics</h3>
-                        <div class="performance-empty">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <p>Performance data unavailable</p>
-                            <span>Submit tickets to track performance</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Knowledge Graph Page -->
-            <div class="page-content hidden" id="knowledge-page">
-                <div class="page-header">
-                    <h1>Knowledge Graph</h1>
-                    <p>Visualize your knowledge network</p>
-                </div>
-                
-                <div class="knowledge-container">
-                    <div class="glass-card graph-card">
-                        <div class="graph-header">
-                            <h3>3D Knowledge Visualization</h3>
-                            <div class="graph-controls">
-                                <button class="btn btn--outline btn--sm" disabled>
-                                    <i class="fas fa-search-plus"></i>
-                                    Zoom In
-                                </button>
-                                <button class="btn btn--outline btn--sm" disabled>
-                                    <i class="fas fa-search-minus"></i>
-                                    Zoom Out
-                                </button>
-                                <button class="btn btn--outline btn--sm" disabled>
-                                    <i class="fas fa-expand"></i>
-                                    Full Screen
-                                </button>
-                            </div>
-                        </div>
-                        <div class="knowledge-graph-container">
-                            <div class="graph-empty">
-                                <i class="fas fa-network-wired"></i>
-                                <h4>Build your knowledge graph by adding tickets</h4>
-                                <p>Your knowledge graph will appear here once tickets are processed</p>
-                                <p class="help-text">Tickets will be analyzed and connected based on similarity and topics</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="tickets-container" id="ticketsContainer"></div>
                 </div>
             </div>
         </main>
@@ -310,6 +177,8 @@
         </div>
     </div>
 
+    <script src="app-state.js"></script>
+    <script src="batch-processing.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

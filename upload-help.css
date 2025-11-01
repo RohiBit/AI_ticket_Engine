@@ -1,0 +1,18 @@
+.upload-help {
+    font-size: var(--font-size-sm);
+    color: var(--color-teal-300);
+    margin: var(--space-12) 0;
+}
+
+.format-example {
+    display: block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-12);
+    border-radius: var(--radius-base);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+    margin: var(--space-8) 0;
+    white-space: pre;
+    text-align: left;
+}

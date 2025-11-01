@@ -1,0 +1,51 @@
+Cannot login to my account after password reset
+I recently reset my password through the forgot password link, but now I can't login with the new password. I keep getting "Invalid credentials" error. I've tried multiple times and made sure caps lock is off. This is urgent as I need to access my work documents.
+
+---
+
+App crashes when uploading large PDF files
+When trying to upload PDF files larger than 20MB, the application crashes without any error message. This happens consistently with any PDF over this size limit. Smaller files work fine. Steps to reproduce:
+1. Open file upload dialog
+2. Select PDF > 20MB
+3. Click upload
+4. App freezes then crashes
+
+---
+
+Minor UI glitch in dark mode
+I noticed that in dark mode, some tooltip text is barely visible because it's using a dark gray color on dark background. This only affects the hover tooltips in the settings menu. Not urgent but would improve accessibility.
+
+---
+
+CRITICAL: Database connection failures
+We're experiencing intermittent database connection failures in the production environment. This is causing data loss and affecting all users. Error log shows "Connection timeout" errors every few minutes. Started occurring after the latest deployment.
+
+---
+
+Feature request: Add export to Excel
+It would be helpful to have an option to export the monthly reports to Excel format. Currently we can only export as PDF, but our team needs to do additional analysis in Excel. This would save us time from manual data entry.
+
+---
+
+Mobile app notifications not working on iOS
+Push notifications stopped working on my iPhone after the latest iOS update. I've checked the notification settings on my phone and they're enabled for the app. Other apps' notifications are working fine. This is affecting my response time to urgent messages.
+
+---
+
+Spelling mistake on homepage
+There's a typo in the main headline on the homepage. It currently says "Buisness Solutions" instead of "Business Solutions". This looks unprofessional to our clients.
+
+---
+
+URGENT: Payment processing failing
+Customer payments are failing with error code E-5501. This started happening about 30 minutes ago and is affecting all payment attempts. Our support line is getting flooded with customer complaints. Revenue impact is significant.
+
+---
+
+Question about new beta feature
+I saw the announcement about the new AI assistant feature in beta. How can I join the beta testing program? I couldn't find any information in the documentation about signing up for beta access.
+
+---
+
+Performance degradation in search results
+The search function has become noticeably slower over the past week. Queries that used to return results instantly now take 5-10 seconds. This is impacting our customer service team's ability to help customers quickly. Please investigate the cause of this slowdown.

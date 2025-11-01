@@ -1,0 +1,189 @@
+/* Dashboard Statistics */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-16);
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-8);
+}
+
+.stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+}
+
+/* Activity List */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-12);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-sm);
+}
+
+.activity-item.priority-high { border-left: 3px solid var(--color-red-500); }
+.activity-item.priority-medium { border-left: 3px solid var(--color-yellow-500); }
+.activity-item.priority-low { border-left: 3px solid var(--color-green-500); }
+
+.activity-id {
+    font-family: var(--font-mono);
+    color: var(--color-white);
+}
+
+.activity-priority {
+    font-weight: var(--font-weight-medium);
+}
+
+.activity-time {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* End of styles */
+
+.priority-bar .bar {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.priority-bar .bar.high { background: var(--color-red-500); }
+.priority-bar .bar.medium { background: var(--color-yellow-500); }
+.priority-bar .bar.low { background: var(--color-green-500); }
+
+.bar-label {
+    position: absolute;
+    left: var(--space-12);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+    z-index: 1;
+}
+
+/* Trend Chart */
+.trend-chart {
+    height: 300px;
+    padding: var(--space-16);
+    display: flex;
+    flex-direction: column;
+}
+
+.trend-bars {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-8);
+    padding-bottom: var(--space-16);
+    min-height: 200px;
+}
+
+.trend-bar {
+    flex: 1;
+    background: var(--color-teal-500);
+    min-width: 30px;
+    border-radius: var(--radius-base);
+    position: relative;
+    transition: height 0.3s ease;
+}
+
+.trend-value {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trend-labels {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-sm);
+}
+
+/* Knowledge Graph */
+.graph-visualization {
+    padding: var(--space-24);
+}
+
+.graph-stats {
+    display: flex;
+    gap: var(--space-24);
+    margin-bottom: var(--space-24);
+}
+
+.graph-stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    text-align: center;
+}
+
+.graph-canvas {
+    height: 400px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.graph-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+}
+
+.graph-node {
+    position: absolute;
+    transform-origin: center;
+}
+
+.graph-node.central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-teal-500);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+}
+
+.node-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.node-dot.high { background: var(--color-red-500); }
+.node-dot.medium { background: var(--color-yellow-500); }
+.node-dot.low { background: var(--color-green-500); }
